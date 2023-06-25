@@ -1,17 +1,19 @@
 FROM jupyter/minimal-notebook
 
-USER root
-
 # Install Redis dependencies
-RUN apt-get update && \
-    apt-get install -y \
-        build-essential \
-        tcl
+USER root
+RUN apt-get update && apt-get install -y \
+        build-essential
 
-USER $NB_UID
 
 # Install Redis module using pip
 RUN pip install redis
 
+# Set working directory
+WORKDIR /home/ubuntu/Jupyter_redis/work
+
+# expose port
+EXPOSE 8080
+
 # Start Jupyter Notebook
-CMD ["start-notebook.sh"]
+CMD ["jupyter"]
