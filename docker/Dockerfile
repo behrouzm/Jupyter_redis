@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y \
 # Install Redis module using pip
 RUN pip install redis
 
-# Set working directory
-WORKDIR /home/ubuntu/Jupyter_redis/work
 
 # expose port
 EXPOSE 8080
