@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build Jupyter_redis/docker --file Dockerfile --tag behimolla/jupyter_redis
+      run: docker build ./Jupyter_redis/docker --file Dockerfile --tag behimolla/jupyter_redis
     - name: push the image to DockerHub
       run: docker login -u behimolla -p ${{ secrets.DOCKER_TOKEN }} && docker push behimolla/jupyter_redis
